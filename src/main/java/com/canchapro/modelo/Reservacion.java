@@ -19,7 +19,9 @@ public class Reservacion {
         this.cancha = cancha;
         this.fecha = fecha;
         this.hora = hora;
-        this.horas = horas;
+        this.horas = 1;
+        setHoras(horas);
+        
         this.estado = "activa";
         setEstado(estado);
         
@@ -72,8 +74,8 @@ public class Reservacion {
     public void setHoras(int horas) {
         if (horas > 0){
         
-        this.horas = horas;
-        
+           this.horas = horas;
+             
         } else {
             System.out.println("Error, las horas deben ser mayor a 0");
          }
