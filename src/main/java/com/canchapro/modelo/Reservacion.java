@@ -1,18 +1,20 @@
 
 
 package com.canchapro.modelo;
+import java.time.LocalTime;
+import java.time.LocalDate;
 
 
 public class Reservacion {
     private String codigo; 
     private Cliente cliente; 
     private Cancha cancha;
-    private String fecha; 
-    private String hora;
+    private LocalDate fecha; 
+    private LocalTime hora;
     private int horas;
     private String estado; 
     
-    public Reservacion(String codigo, Cliente cliente, Cancha cancha, String fecha, String hora, int horas, String estado){
+    public Reservacion(String codigo, Cliente cliente, Cancha cancha, LocalDate fecha, LocalTime hora, int horas, String estado){
         
         this.codigo = codigo;
         this.cliente = cliente;
@@ -51,19 +53,19 @@ public class Reservacion {
         this.cancha = cancha;
     }
 
-    public String getFecha() {
+    public LocalDate getFecha() {
         return fecha;
     }
 
-    public void setFecha(String fecha) {
+    public void setFecha(LocalDate fecha) {
         this.fecha = fecha;
     }
 
-    public String getHora() {
+    public LocalTime getHora() {
         return hora;
     }
 
-    public void setHora(String hora) {
+    public void setHora(LocalTime hora) {
         this.hora = hora;
     }
 
@@ -99,6 +101,15 @@ public class Reservacion {
     
     public int CalcularTotal(){
         return cancha.getPrecio() * horas;
+    }
+    public LocalTime calcularHoraFinal(){
+    return hora.plusHours(horas);
+    }
+    
+    public boolean validaHorario(){
+    return !hora.isBefore(cancha.getHoraApertura())
+            && hora.plusHours(horas).isAfter(hora)
+            && !calcularHoraFinal().isAfter(cancha.getHoraCierre());
     }
 }
 

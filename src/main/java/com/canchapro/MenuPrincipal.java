@@ -4,7 +4,8 @@ import com.canchapro.modelo.Cancha;
 import com.canchapro.modelo.Cliente;
 import com.canchapro.modelo.Reservacion;
 import java.time.LocalTime;
-
+import java.time.LocalDate;
+import java.time.Month;
 
 public class MenuPrincipal {
     public void iniciar(){
@@ -51,9 +52,9 @@ public class MenuPrincipal {
                 "R01",
                 cliente1,
                 Cancha1,
-                "17 de mayo",
-                "5PM",
-                -5,
+                LocalDate.of(2026, 10, 21),
+                LocalTime.of(19, 0),
+                6,
                 "activa"
         );
         
@@ -66,7 +67,8 @@ public class MenuPrincipal {
         System.out.println("Hora:"     + Reservacion1.getHora());
         
         System.out.println("Horas:"    + Reservacion1.getHoras());
-        
+        System.out.println("Hora final: " + Reservacion1.calcularHoraFinal());
+        System.out.println("Horario valido: " + Reservacion1.validaHorario());
         
         System.out.println("Estado:"   + Reservacion1.getEstado());
         
