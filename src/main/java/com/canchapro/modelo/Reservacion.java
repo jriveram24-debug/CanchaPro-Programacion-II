@@ -111,5 +111,15 @@ public class Reservacion {
             && hora.plusHours(horas).isAfter(hora)
             && !calcularHoraFinal().isAfter(cancha.getHoraCierre());
     }
+    public boolean validarFecha(){
+        return !fecha.isBefore(LocalDate.now());
+    }
+    
+    public boolean traslapes(Reservacion otra){
+        return this.cancha.getCodigo().equals(otra.getCancha().getCodigo())
+        && this.fecha.equals(otra.getFecha())
+        && this.hora.isBefore(otra.calcularHoraFinal())
+        && this.calcularHoraFinal().isAfter(otra.getHora())
+                ;}
 }
 
