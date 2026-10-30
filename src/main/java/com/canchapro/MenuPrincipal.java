@@ -7,6 +7,9 @@ import java.time.LocalTime;
 import java.time.LocalDate;
 import java.time.Month;
 import com.canchapro.modelo.RegistroDeReservaciones;
+import com.canchapro.modelo.Tienda;
+import com.canchapro.modelo.Tienda;
+import com.canchapro.modelo.Productos;
 
 public class MenuPrincipal {
     public void iniciar(){
@@ -44,11 +47,11 @@ public class MenuPrincipal {
                 "Cancha 1",
                 "futbol 5",
                 150,
-                "disponible",
+                "Disponible",
                  10 ,
                 LocalTime.of(8, 0),
                 LocalTime.of(23, 0));
-            
+          /*  
         System.out.println("Codigo: "        + Cancha1.getCodigo());
         System.out.println("Nombre: "        + Cancha1.getNombre());
         System.out.println("TIpo de juego: " + Cancha1.getTipo());
@@ -56,7 +59,7 @@ public class MenuPrincipal {
         System.out.println("Estado: "        + Cancha1.getEstado());
         System.out.println("Capacidad: "      + Cancha1.getcapacidad());
         System.out.println("Hora de apertura: " + Cancha1.getHoraApertura());
-        System.out.println("Hora de cierre: "   + Cancha1.getHoraCierre());
+        System.out.println("Hora de cierre: "   + Cancha1.getHoraCierre());*/
         
         
         
@@ -65,8 +68,8 @@ public class MenuPrincipal {
                 "R01",
                 cliente1,
                 Cancha1,
-                LocalDate.of(2026, 10, 28),
-                LocalTime.of(19, 0),
+                LocalDate.of(2026, 10, 29),
+                LocalTime.of(21, 0),
                 2,
                 "activa"
         );
@@ -75,17 +78,27 @@ public class MenuPrincipal {
                 "R02",
                 cliente2,
                 Cancha1,
-                LocalDate.of(2026, 10, 28),
-                LocalTime.of(21, 0),
+                LocalDate.of(2026, 10, 29),
+                LocalTime.of(22, 0),
                 1,
                 "activa");
         
+        Reservacion Reservacion3 = new Reservacion(
+                "R03",
+                cliente2,
+                Cancha1,
+                LocalDate.of(2026, 10, 29),
+                LocalTime.of(20, 0),1,
+                "activa");
+        
+        
         RegistroDeReservaciones registro = new RegistroDeReservaciones();
         registro.agregarReservaciones(Reservacion1);
-        
+        registro.agregarReservaciones(Reservacion2);
+        registro.agregarReservaciones(Reservacion3);
         System.out.println("Existe traslape: " + Reservacion1.traslapes(Reservacion2));
         
-        System.out.println("    ---- RESERVACION ----    ");
+        /*System.out.println("    ---- RESERVACION ----    ");
         
         System.out.println("Codigo:"  + Reservacion1.getCodigo());
         System.out.println("Nombre:"   + Reservacion1.getCliente().getNombre());
@@ -98,7 +111,7 @@ public class MenuPrincipal {
         System.out.println("Horario valido: " + Reservacion1.validaHorario());
         
         System.out.println("Estado:"   + Reservacion1.getEstado());
-        
+        */
         
         
         
@@ -122,7 +135,28 @@ public class MenuPrincipal {
             System.out.println("Reservacion permitida");
             System.out.println("Total: Q." + Reservacion1.CalcularTotal());
         }
+        
+        
+        
+        Tienda tienda = new Tienda("Tienda Cancha Pro");
+        System.out.println("Tienda activada: " + tienda.isACtiva());
+            
+        tienda.activarTienda();
+        System.out.println("Tienda activada: " + tienda.isACtiva());
+        
+        tienda.cancelarTienda();
+        System.out.println("Tienda activada: " + tienda.isACtiva()  );
     }
+    
+    
+    Productos gatorade = new Productos(
+            "Gatorade",
+            "P001",
+            12.50,
+            15,
+            "Bebidas",
+            5
+);
     
     
     
