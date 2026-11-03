@@ -9,9 +9,9 @@ public class CanchaPro {
     
 
     public static void main(String[] args) {
-     MenuPrincipal menu = new MenuPrincipal();
-     menu.iniciar();
-        
-        
-}
+        java.awt.EventQueue.invokeLater(()->{
+        new com.canchapro.vista.VentanaPrincipal().setVisible(true);
+        });
+    }
+   
 }

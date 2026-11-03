@@ -7,14 +7,18 @@ public class Productos {
     private String codigo;
     private double precio; 
     private int stock;
+    private String categoria;
+    private int stockmin;
     
-    
-    public Productos(String nombre, String codigo, double precio, int stock){
+    public Productos(String nombre, String codigo, double precio, int stock, String categoria, int stockmin){
         this.nombre = nombre;
         this.codigo = codigo;
         this.precio = precio;
         this.stock = stock;
-        }
+        this.categoria = categoria;
+        this.stockmin = stockmin;
+        
+}
 
     public String getNombre() {
         return nombre;
@@ -47,6 +51,27 @@ public class Productos {
     public void setStock(int stock) {
         this.stock = stock;
     }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
+    public int getStockmin() {
+        return stockmin;
+    }
+
+    public void setStockmin(int stockmin) {
+        this.stockmin = stockmin;
+    }
+
+    public boolean necesitaReposicion() {
+    return stock <= stockmin;
+}
+    
     public boolean venderProduct(int cantidad){
      if (cantidad <= 0 || cantidad > stock){
          System.out.println("No valida o insuficiente producto");

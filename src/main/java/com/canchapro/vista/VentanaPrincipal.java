@@ -3,20 +3,42 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.canchapro.vista;
-
+import com.canchapro.modelo.Cliente;
+import com.canchapro.modelo.RegistroDeClientes;
 /**
  *
  * @author Julio Rivera
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(VentanaPrincipal.class.getName());
-
-    /**
-     * Creates new form VentanaPrincipal
-     */
+    private static final java.util.logging.Logger logger = 
+            java.util.logging.Logger.getLogger(VentanaPrincipal.class.getName());
+    
+            
+            private RegistroDeClientes registro = new RegistroDeClientes();
+            
     public VentanaPrincipal() {
         initComponents();
+        /*txtNombreCliente.addActionListener(e ->{
+            String nombre = txtNombreCliente.getText();
+            System.out.println("Nombre Ingresado: " + nombre);
+        });
+        txtCodigoCliente.addActionListener(e ->{
+        String codigo = txtCodigoCliente.getText();
+            System.out.println("Codigo ingresado: " + codigo);
+        });
+        txtTelefonoCliente.addActionListener(e ->{
+        String telefono = txtTelefonoCliente.getText();
+            System.out.println("Telefono ingresado: " + telefono);
+        });
+        txtCorreoCliente.addActionListener(e->{
+        String correo = txtCorreoCliente.getText();
+            System.out.println("Correo Electronico ingresado: " + correo);
+        });
+        txtFechaCliente.addActionListener(e->{
+        String fecha = txtFechaCliente.getText();
+            System.out.println("Fecha ingresada: " + fecha);
+        });*/
     }
 
     /**
@@ -28,70 +50,285 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         PanelMenu = new javax.swing.JPanel();
+        btnReservaciones = new javax.swing.JButton();
+        btnClientes = new javax.swing.JButton();
+        btnPagos = new javax.swing.JButton();
+        btnCanchas = new javax.swing.JButton();
+        btnTienda = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
+        PanelContenido = new javax.swing.JPanel();
+        jblContenido = new javax.swing.JLabel();
+        txtNombreCliente = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        txtCodigoCliente = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        txtTelefonoCliente = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        txtCorreoCliente = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        txtFechaCliente = new javax.swing.JTextField();
+        btnGuardarCliente = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("CanchaPro - Sistema de Reservaciones");
         setName("ventanaPrincipal"); // NOI18N
         setPreferredSize(new java.awt.Dimension(750, 500));
 
-        jButton1.setText("Reservaciones");
+        btnReservaciones.setText("Reservaciones");
+        btnReservaciones.addActionListener(this::btnReservacionesActionPerformed);
 
-        jButton2.setText("Clientes");
+        btnClientes.setText("Clientes");
+        btnClientes.addActionListener(this::btnClientesActionPerformed);
 
-        jButton3.setText("Pagos");
+        btnPagos.setText("Pagos");
+        btnPagos.addActionListener(this::btnPagosActionPerformed);
+
+        btnCanchas.setText("Canchas");
+        btnCanchas.addActionListener(this::btnCanchasActionPerformed);
+
+        btnTienda.setText("Tienda");
+        btnTienda.addActionListener(this::btnTiendaActionPerformed);
+
+        btnSalir.setText("Salir");
+        btnSalir.addActionListener(this::btnSalirActionPerformed);
 
         javax.swing.GroupLayout PanelMenuLayout = new javax.swing.GroupLayout(PanelMenu);
         PanelMenu.setLayout(PanelMenuLayout);
         PanelMenuLayout.setHorizontalGroup(
             PanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 200, Short.MAX_VALUE)
+            .addGroup(PanelMenuLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addGroup(PanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnPagos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnClientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnReservaciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnCanchas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnTienda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnSalir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(80, Short.MAX_VALUE))
         );
         PanelMenuLayout.setVerticalGroup(
             PanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 450, Short.MAX_VALUE)
+            .addGroup(PanelMenuLayout.createSequentialGroup()
+                .addGap(58, 58, 58)
+                .addComponent(btnReservaciones)
+                .addGap(27, 27, 27)
+                .addComponent(btnClientes)
+                .addGap(29, 29, 29)
+                .addComponent(btnPagos)
+                .addGap(28, 28, 28)
+                .addComponent(btnCanchas)
+                .addGap(26, 26, 26)
+                .addComponent(btnTienda)
+                .addGap(27, 27, 27)
+                .addComponent(btnSalir)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        jblContenido.setText("Bienvenido a Cancha Pro");
+
+        txtNombreCliente.addActionListener(this::txtNombreClienteActionPerformed);
+
+        jLabel2.setText("Nombre completo");
+
+        jLabel3.setText("Codigo del cliente");
+
+        txtCodigoCliente.addActionListener(this::txtCodigoClienteActionPerformed);
+
+        jLabel4.setText("Telefono");
+
+        jLabel5.setText("Correo Electronico");
+
+        jLabel6.setText("Fecha");
+
+        txtFechaCliente.addActionListener(this::txtFechaClienteActionPerformed);
+
+        btnGuardarCliente.setText("Guardar Cliente");
+        btnGuardarCliente.addActionListener(this::btnGuardarClienteActionPerformed);
+
+        javax.swing.GroupLayout PanelContenidoLayout = new javax.swing.GroupLayout(PanelContenido);
+        PanelContenido.setLayout(PanelContenidoLayout);
+        PanelContenidoLayout.setHorizontalGroup(
+            PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelContenidoLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnGuardarCliente)
+                .addGap(125, 125, 125))
+            .addGroup(PanelContenidoLayout.createSequentialGroup()
+                .addGroup(PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelContenidoLayout.createSequentialGroup()
+                        .addGap(154, 154, 154)
+                        .addComponent(jblContenido, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(PanelContenidoLayout.createSequentialGroup()
+                            .addGap(34, 34, 34)
+                            .addComponent(jLabel4)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel5))
+                        .addGroup(PanelContenidoLayout.createSequentialGroup()
+                            .addGroup(PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(PanelContenidoLayout.createSequentialGroup()
+                                    .addGap(14, 14, 14)
+                                    .addComponent(jLabel2))
+                                .addGroup(PanelContenidoLayout.createSequentialGroup()
+                                    .addGap(20, 20, 20)
+                                    .addGroup(PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(txtTelefonoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtNombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(PanelContenidoLayout.createSequentialGroup()
+                                            .addGap(1, 1, 1)
+                                            .addComponent(txtFechaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGap(26, 26, 26)))
+                            .addGroup(PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(PanelContenidoLayout.createSequentialGroup()
+                                    .addGap(185, 185, 185)
+                                    .addGroup(PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(PanelContenidoLayout.createSequentialGroup()
+                                            .addGap(6, 6, 6)
+                                            .addComponent(txtCodigoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jLabel3)))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelContenidoLayout.createSequentialGroup()
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txtCorreoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(PanelContenidoLayout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        PanelContenidoLayout.setVerticalGroup(
+            PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelContenidoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jblContenido, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5)
+                .addGroup(PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtNombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCodigoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtTelefonoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCorreoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtFechaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnGuardarCliente))
+                .addContainerGap(185, Short.MAX_VALUE))
+        );
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("CANCHA PRO");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(PanelMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 125, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(59, 59, 59))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(200, 200, 200)
+                        .addComponent(jLabel1)
+                        .addGap(168, 168, 168))
+                    .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(166, 166, 166))))
+                        .addComponent(PanelContenido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(PanelMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(75, 75, 75)
-                                .addComponent(jButton1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(89, 89, 89)
-                                .addComponent(jButton2)))
-                        .addGap(41, 41, 41)
-                        .addComponent(jButton3))
-                    .addComponent(PanelMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(35, Short.MAX_VALUE))
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(PanelContenido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 26, Short.MAX_VALUE)))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnReservacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservacionesActionPerformed
+        jblContenido.setText("GESTION DE RESERVACIONES");
+
+    }//GEN-LAST:event_btnReservacionesActionPerformed
+
+    private void btnClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClientesActionPerformed
+        jblContenido.setText("GESTION DE CLIENTES");
+    }//GEN-LAST:event_btnClientesActionPerformed
+
+    private void btnPagosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagosActionPerformed
+        jblContenido.setText("GESTION DE PAGOS");
+    }//GEN-LAST:event_btnPagosActionPerformed
+
+    private void btnCanchasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCanchasActionPerformed
+        jblContenido.setText("GESTION DE CANCHAS");
+    }//GEN-LAST:event_btnCanchasActionPerformed
+
+    private void btnTiendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTiendaActionPerformed
+        jblContenido.setText("GESTION DE TIENDA");
+    }//GEN-LAST:event_btnTiendaActionPerformed
+
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        dispose();
+    }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void txtNombreClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreClienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreClienteActionPerformed
+
+    private void txtCodigoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoClienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCodigoClienteActionPerformed
+
+    private void txtFechaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaClienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtFechaClienteActionPerformed
+
+    private void btnGuardarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarClienteActionPerformed
+        
+        
+        String nombre = txtNombreCliente.getText();
+        String codigo = txtCodigoCliente.getText();
+        String telefono = txtTelefonoCliente.getText();
+        String correo = txtCorreoCliente.getText();
+        String fecha = txtFechaCliente.getText();
+        
+        Cliente nuevoCliente = new Cliente (nombre, codigo, telefono, correo, fecha);
+        boolean guardado = registro.agregarCliente(nuevoCliente);
+        registro.listarClientes();
+        
+        
+        if (guardado){
+            System.out.println("Cliente Registrado:"+ nuevoCliente.getNombre());
+        }
+        System.out.println("Total de clientes: " + registro.getCantidad());
+        
+       
+        
+        
+        
+        
+    }//GEN-LAST:event_btnGuardarClienteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -99,7 +336,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+        /* If Nimbus (introduced in Java SE 6) is not available, stay wbtnReservacionesdefault look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
@@ -119,9 +356,26 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel PanelContenido;
     private javax.swing.JPanel PanelMenu;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton btnCanchas;
+    private javax.swing.JButton btnClientes;
+    private javax.swing.JButton btnGuardarCliente;
+    private javax.swing.JButton btnPagos;
+    private javax.swing.JButton btnReservaciones;
+    private javax.swing.JButton btnSalir;
+    private javax.swing.JButton btnTienda;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jblContenido;
+    private javax.swing.JTextField txtCodigoCliente;
+    private javax.swing.JTextField txtCorreoCliente;
+    private javax.swing.JTextField txtFechaCliente;
+    private javax.swing.JTextField txtNombreCliente;
+    private javax.swing.JTextField txtTelefonoCliente;
     // End of variables declaration//GEN-END:variables
 }
