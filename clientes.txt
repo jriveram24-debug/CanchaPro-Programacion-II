@@ -1,0 +1,3 @@
+Julio Rivera,C01,40787223,5 de noviembre,juliomazariegos2006@gmail.com
+Carlos  Ruiz ,C02,23992311,5 de noviembre,carlos@gmail.com
+Jacky Guarchaj,C03,38384939,9/11/2026,jack@gmail.com

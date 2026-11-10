@@ -41,5 +41,14 @@ public class RegistroDeClientes {
         System.out.println("Codigo: " + clientes[i].getCodigo());
         System.out.println("---------------------");
     }
+    
     }
+    public Cliente buscarPorTelefono(String telefono) {
+    for (int i = 0; i < cantidad; i++) {
+        if (clientes[i].getTelefono().equals(telefono)) {
+            return clientes[i];
+        }
+    }
+    return null;
+}
 }

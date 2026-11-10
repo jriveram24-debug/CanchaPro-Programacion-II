@@ -76,7 +76,7 @@ public class Cancha {
         }
     }
     
-    public int getcapacidad() {
+    public int getCapacidad() {
         return capacidad; 
     }
     public void setCapacidad(int capacidad){
