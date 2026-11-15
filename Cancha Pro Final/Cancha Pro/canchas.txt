@@ -1,0 +1,4 @@
+C001;Cancha Principal;Futbol 5;150;Disponible;10;08:00;22:00
+C002;Cancha Secundaria;Futbol 5;150;Disponible;10;08:00;23:00
+C003;Cancha Futbol 7;Futbol 7;200;Disponible;14;08:00;23:00
+C004;Cancha megapro;Futbol 11;200;Disponible;22;08:00;22:00
